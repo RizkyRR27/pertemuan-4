@@ -39,17 +39,44 @@ void main(){
 //--------------------------------------------------------------------------------------------------------------------
 
 //3. gunakan map untuk menyimpan data barang(kode, nama, harga) tambahkan minimal 3 barang lalu tampilkan
-Map<String, Map<String, dynamic>> barang = {
-  'B001': {'nama': 'Pensil', 'harga': 2000},
-  'B002': {'nama': 'Buku', 'harga': 15000},
-  'B003': {'nama': 'Penghapus', 'harga': 3000},
-};
-//key: kode barang
-//value: map (nama, harga)
-  print("daftar data barang:"); //bisa pakai ini  print("daftar data barang: $barang");
-  barang.forEach((kode, info) {                                             //jika menggunakan print di atas, maka codingan ini tidak perlu
-    print('Kode: $kode, Nama: ${info['nama']}, Harga: ${info['harga']}');   // foreach digunakan untuk menampilkan per item
-  });                                                                      // sampai sini
+ Map<String, Map<String, dynamic>> barang = {
+   'B001': {'nama': 'Pensil', 'harga': 20000},
+   'B002': {'nama': 'Buku', 'harga': 150000},
+   'B003': {'nama': 'Penghapus', 'harga': 30000},
+ };
+// //key: kode barang
+// //value: map (nama, harga)
+   print("daftar data barang:"); //bisa pakai ini  print("daftar data barang: $barang");
+   barang.forEach((kode, info) {                                             //jika menggunakan print di atas, maka codingan ini tidak perlu
+     print('Kode: $kode, Nama: ${info['nama']}, Harga: ${info['harga']}');   // foreach digunakan untuk menampilkan per item
+    });                                                                      // sampai sini
+
+//--------------------------------------------------------------------------------------------------------------------
+
+//4. buaat function closure yang menghitung diskon bertingkat (misal setiap kali dipanggil, diskon bertambah 5%)
+
+  Function diskonBertingkat() {
+  double diskon = 0; 
+  return (int info) { 
+    diskon += 5; //diskon bertambah 5% setiap kali fungsi dipanggil
+    double hargaSetelahDiskon = info - (info * diskon / 100); //rumus diskon
+    print('Diskon saat ini: $diskon%');
+    return hargaSetelahDiskon; //mengembalikan nilai harga setelah diskon
+  };
+}
+  var hitungDiskon1 = diskonBertingkat();
+  print('Harga setelah diskon: ${hitungDiskon1(barang['B001']!['harga'])}');
+  print('Harga setelah diskon: ${hitungDiskon1(barang['B001']!['harga'])}');
+  print('Harga setelah diskon: ${hitungDiskon1(barang['B001']!['harga'])}');
+
+  var hitungDiskon2 = diskonBertingkat();
+  print('Harga setelah diskon: ${hitungDiskon2(barang['B002']!['harga'])}');
+  print('Harga setelah diskon: ${hitungDiskon2(barang['B002']!['harga'])}');
+
+  var hitungDiskon3 = diskonBertingkat();
+  print('Harga setelah diskon: ${hitungDiskon3(barang['B003']!['harga'])}');
+  print('Harga setelah diskon: ${hitungDiskon3(barang['B003']!['harga'])}');
+
 }
 
 
