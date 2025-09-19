@@ -51,20 +51,23 @@ void main(List<String> arguments) {
 // }
 // print("objects: data dalam set nilai-1: $setNilai1");
 
-var setNilai1 = <String> [];
+// var setNilai1 = <String> [];
 
-print("jumlah data set nilai-1");
-String? input = stdin.readLineSync();
-int jumlah1 = (int.tryParse(input ?? '')) ?? 0;
-for (var i = 0; i < jumlah1; i++) {
-  print("masukkan nilai ke-${i+1}: ");
-  String? nilai = stdin.readLineSync();
-  String nilaiInt = nilai ?? '';
-  setNilai1.add(nilaiInt);
-}
-var nilaiList = setNilai1.toList();
-print(nilaiList[1]);
+// print("jumlah data set nilai-1");
+// String? input = stdin.readLineSync();
+// int jumlah1 = (int.tryParse(input ?? '')) ?? 0;
+// for (var i = 0; i < jumlah1; i++) {
+//   print("masukkan nilai ke-${i+1}: ");
+//   String? nilai = stdin.readLineSync();
+//   String nilaiInt = nilai ?? '';
+//   setNilai1.add(nilaiInt);
+// }
+// var nilaiList = setNilai1.toList();
+// print(nilaiList[1]);
 //print( setNilai1.elementAt(2)); //jika ingin diprint satu per satu
 //print( setNilai1.join(',')); //jika ingin diprint semua
+
+
+
 
 }
